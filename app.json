@@ -1,0 +1,151 @@
+{
+  "id": "com.jilles.proliphix",
+  "sdk": 2,
+  "name": {
+    "en": "Proliphix"
+  },
+  "description": {
+    "en": "Adds support for Proliphix Thermostats"
+  },
+  "category": "climate",
+  "version": "1.0.0",
+  "compatibility": ">=1.5.0",
+  "author": {
+    "name": "Jilles Miedema",
+    "email": "nattelip@hotmail.com"
+  },
+
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+
+  "drivers": [
+    {
+      "id": "nt10",
+      "name": {
+        "en": "NT10",
+        "nl": "NT10"
+      },
+      "class": "thermostat",
+      "capabilities": [ "target_temperature", "measure_temperature" ],
+      "images": {
+        "large": "/drivers/nt10/assets/images/large.jpg",
+        "small": "/drivers/nt10/assets/images/small.jpg"
+      },
+      "pair": [
+        {
+          "id": "start"
+        }
+
+      ],
+
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings"
+          },
+          "children": [
+            {
+              "id": "ip",
+              "type": "text",
+              "label": {
+                "en": "ip of thermostat"
+              },
+              "value": "Text value 1",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "port",
+              "type": "text",
+              "label": {
+                "en": "port of thermostat"
+              },
+              "value": "port",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "user",
+              "type": "text",
+              "label": {
+                "en": "username"
+              },
+              "value": "username",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "password",
+              "type": "password",
+              "label": {
+                "en": "password"
+              },
+              "value": "password",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "treshold temperature",
+              "type": "number",
+              "label": {
+                "en": "treshold temperature"
+              },
+              "value": 15,
+              "attr": {
+                "min": 3,
+                "max": 30
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Specific settings"
+          },
+          "children": [
+            {
+              "id": "checkbox1",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Checkbox label 1"
+              }
+            },
+            {
+              "id": "dropdown1",
+              "type": "dropdown",
+              "value": "choice2",
+              "label": {
+                "en": "Dropdown label 1"
+              },
+              "values": [
+                {
+                  "id": "choice1",
+                  "label": {
+                    "en": "Dropdown choice 1"
+                  }
+                },
+                {
+                  "id": "choice2",
+                  "label": {
+                    "en": "Dropdown choice 2"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+
+
+    }
+  ]
+}

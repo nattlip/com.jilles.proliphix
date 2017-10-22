@@ -1,0 +1,129 @@
+
+
+<div id='text'></div>
+
+<script type="text/javascript">
+//Homey.setTitle( __('pair.press_button.title') );
+
+    //Homey.emit('press_button');
+
+    let ip 
+    let port
+    let user
+    let password
+
+    Homey.on('noserver', function () {
+        document.getElementById('text').innerHTML  = '<h2>First set Plugwiseserver variables in settings plugwisesource</h2>';
+    });
+
+    Homey.emit('start', { 'foo': 'bar' }, function (err, result) {
+        console.log(result); // result is Started!
+    });
+
+   
+
+
+
+    function save() {
+        console.log("saving")
+        ip = document.getElementById('ip').value;        
+        port = document.getElementById('port').value
+        user = document.getElementById('user').value
+        password = document.getElementById('password').value
+
+        console.log("ip  ",ip)
+        console.log("port  ", port)
+        console.log("user  ", user)
+        console.log("password  ", password)
+        
+        Homey.addDevice({
+            data: { // this data object is saved to- and unique for the device. It is passed on the get and set functions as 1st argument
+                id: ip // something unique, so your driver knows which physical device it is. A MAC address or Node ID, for example. This is required
+            },
+            name: 'My Device' ,// the name for this device (optional),
+            settings: {
+                'ip': ip, 'port': port, "user": user, "password" : password } // initial settings (optional)
+        },
+            function (err, result) {
+                if (err) return console.error(err);
+                Homey.done();
+            }
+
+        );
+        
+    }
+
+    
+
+
+
+</script>
+
+
+<h1>Proliphix Settings Page</h1>
+<p>set host ip and port </p>
+
+
+
+<fieldset>
+    <legend>Proliphix  variables</legend>
+
+    <div class='field row'>
+        <label for='ip'>ipaddress  proliphix</label>
+        <input id='ip' type='text' value='' />
+    </div>
+
+    <div class='field row'>
+        <label for='port'>port  proliphix</label>
+        <input id='port' type='text' value='' />
+    </div>
+
+    <div class='field row'>
+        <label for='user'>username</label>
+        <input id='user' type='text' value='' />
+    </div>
+
+    <div class='field row'>
+        <label for='password'>password</label>
+        <input id='password' type='password' value='' />
+    </div>
+
+
+
+    <div class='field row'>
+        <label for='test'>servertested</label>
+        <div id='test' style='display: inline-block'></div>
+    </div>
+
+    <div class='field row'>
+        <label for='connected'>serverconnected</label>
+        <div id='connected' style='display: inline-block'></div>
+    </div>
+
+    <div class='field row'>
+        <label for='errormessages'>errormessages</label>
+        <div id='errormessages' style='display: inline-block'></div>
+    </div>
+    <div class='field row'>
+        <label for='messages'>messages</label>
+        <div id='messages' style='display: inline-block'></div>
+    </div>
+    <div class='field row'>
+        <label for='something'>fromApi</label>
+        <div id='something' style='display: inline-block'></div>
+    </div>
+
+
+    <!--<div class='field row'>
+        <label for='test2'>port rfxcom server</label>
+        <textarea id='test2'>textarea sample</textarea>
+    </div>-->
+
+
+</fieldset>
+
+<button class='right' onclick='save()'> Pair  </button>
+
+
+
+
