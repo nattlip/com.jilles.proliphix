@@ -4,11 +4,12 @@
   "name": {
     "en": "Proliphix"
   },
+
   "description": {
     "en": "Adds support for Proliphix Thermostats"
   },
   "category": "climate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=1.5.0",
   "author": {
     "name": "Jilles Miedema",
@@ -23,6 +24,68 @@
     "small": "/assets/images/small.jpg"
   },
 
+  "capabilities": {
+    "measure_temperature_one": {
+      "type": "number",
+      "desc": {
+        "en": "Temperature one",
+        "nl": "Temperatuur een"
+      },
+
+      "title": {
+        "en": "Temperature one",
+        "nl": "Temperatuur een"
+      },
+      "units": {
+       "en": "°C"
+      },
+      "decimals": 2,
+      "chartType": "spline",
+      "getable": true,
+      "setable": false
+    },
+    "measure_temperature_two": {
+      "type": "number",
+      "desc": {
+        "en": "Temperature two",
+        "nl": "Temperatuur twee"
+      },
+      "title": {
+        "en": "Temperature two",
+        "nl": "Temperatuur twee"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "chartType": "spline",
+      "getable": true,
+      "setable": false
+    },
+    "measure_temperature_three": {
+      "type": "number",
+      "desc": {
+        "en": "Temperature three",
+        "nl": "Temperatuur drie"
+      },
+      "title": {
+        "en": "Temperature three",
+        "nl": "Temperatuur drie"
+      },
+      "units": {
+        "en": "°C"
+      },
+      "decimals": 2,
+      "chartType": "spline",
+      "getable": true,
+      "setable": false
+    }
+
+
+  },
+
+ 
+
   "drivers": [
     {
       "id": "nt10",
@@ -36,6 +99,159 @@
         "large": "/drivers/nt10/assets/images/large.jpg",
         "small": "/drivers/nt10/assets/images/small.jpg"
       },
+      "pair": [
+        {
+          "id": "start"
+        }
+
+      ],
+
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings"
+          },
+          "children": [
+            {
+              "id": "ip",
+              "type": "text",
+              "label": {
+                "en": "ip of thermostat"
+              },
+              "value": "Text value 1",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "port",
+              "type": "text",
+              "label": {
+                "en": "port of thermostat"
+              },
+              "value": "port",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "user",
+              "type": "text",
+              "label": {
+                "en": "username"
+              },
+              "value": "username",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "password",
+              "type": "password",
+              "label": {
+                "en": "password"
+              },
+              "value": "password",
+              "hint": {
+                "en": "If needed, add an additional description to explain this setting."
+              }
+            },
+            {
+              "id": "treshold temperature",
+              "type": "number",
+              "label": {
+                "en": "treshold temperature"
+              },
+              "value": 15,
+              "attr": {
+                "min": 3,
+                "max": 30
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Specific settings"
+          },
+          "children": [
+            {
+              "id": "checkbox1",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Checkbox label 1"
+              }
+            },
+            {
+              "id": "dropdown1",
+              "type": "dropdown",
+              "value": "choice2",
+              "label": {
+                "en": "Dropdown label 1"
+              },
+              "values": [
+                {
+                  "id": "choice1",
+                  "label": {
+                    "en": "Dropdown choice 1"
+                  }
+                },
+                {
+                  "id": "choice2",
+                  "label": {
+                    "en": "Dropdown choice 2"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+
+
+    },
+    {
+      "id": "nt20",
+      "name": {
+        "en": "NT20",
+        "nl": "NT20"
+      },
+      "class": "thermostat",
+      "capabilities": [ "measure_temperature_one", "measure_temperature_two", "measure_temperature_three", "thermostat_mode", "target_temperature" ],
+      "images": {
+        "large": "/drivers/nt20/assets/images/large.jpg",
+        "small": "/drivers/nt20/assets/images/small.jpg"
+      },
+
+      "mobile": {
+        "components": [
+          {
+            "id": "sensor",
+            "capabilities": [ "measure_temperature_one", "measure_temperature_two", "measure_temperature_three" ],
+            "options": {
+              "icons": {
+                "measure_temperature_one": "./drivers/nt20/assets/measure_temperature.svg",
+                "measure_temperature_two": "./drivers/nt20/assets/measure_temperature.svg",
+                "measure_temperature_three": "./drivers/nt20/assets/measure_temperature.svg"
+              }
+            }
+          },
+          {
+            "id": "picker",
+            "capabilities": [ "thermostat_mode" ]
+          },
+          {
+            "id": "thermostat",
+            "capabilities": [ "target_temperature" ]
+          }
+        ]
+      },
+
+
+
       "pair": [
         {
           "id": "start"
