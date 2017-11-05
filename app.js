@@ -6,7 +6,7 @@ class MyApp extends Homey.App {
 
     onInit() {
 
-        this.log('MyApp is running...');
+        this.log('Proliphix is running...');
 
     }
 
