@@ -15,3 +15,4 @@
                    switched to http min request with promise from request from http 
 			       deleted the use of module util because this.log works good in sdk2 
 
+07-05-2017   1.0.5 forgot to add http-min dir
