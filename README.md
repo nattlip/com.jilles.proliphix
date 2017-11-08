@@ -16,3 +16,5 @@
 			       deleted the use of module util because this.log works good in sdk2 
 
 07-05-2017   1.0.5 forgot to add http-min dir
+
+08-05-23017  1.0.6 fixed a bug that caused thermstatsetbackheat to be copied frm other device
