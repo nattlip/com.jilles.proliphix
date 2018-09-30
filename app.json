@@ -9,15 +9,22 @@
     "en": "Adds support for Proliphix Thermostats"
   },
   "category": "climate",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "compatibility": ">=1.5.0",
   "author": {
     "name": "Jilles Miedema",
     "email": "nattelip@hotmail.com"
   },
+
+  "bugs": {
+    "url": "https://github.com/nattlip/com.jilles.proliphix"
+  },
+
+  "homeyCommunityTopicId": 140,
+     
   "tags": {
-    "en": [ "heating", "thermostat" ],
-    "nl": [ "verwarming", "thermostaat" ]
+    "en": [ "heating", "ip thermostat", "NT10","NT20"],
+    "nl": [ "verwarming", "ip thermostaat", "NT10", "NT20" ]
   },
   "images": {
     "large": "/assets/images/large.jpg",
@@ -30,7 +37,7 @@
       "desc": {
         "en": "Temperature one",
         "nl": "Temperatuur een"
-      
+
       },
 
       "title": {
@@ -38,7 +45,7 @@
         "nl": "Temperatuur een"
       },
       "units": {
-       "en": "°C"
+        "en": "°C"
       },
       "decimals": 2,
       "chartType": "spline",
@@ -85,7 +92,7 @@
 
   },
 
- 
+
 
   "drivers": [
     {
